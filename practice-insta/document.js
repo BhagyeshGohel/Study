@@ -1,22 +1,73 @@
 let toggle = false;
-document.getElementById("btn").addEventListener("click", function(){
+let tt = false;
+let text;
+$(document).ready(function(){
+$("#btn").on("click", function(){
     toggle =! toggle;
     if(toggle){
-        document.getElementById("btn").innerHTML = "Following";
+        $("#btn").text("Following");
         window.confirm("You want to Follow Harshil Patel");
-        document.getElementById("sidebar").style.display = "flex";
-        document.getElementById("box").style.height = "752px";
-        document.getElementById("line").style.display = "flex";
-        document.getElementById("follow").style.display = "flex"
-    }else{
-        document.getElementById("btn").innerHTML = "Follow";
-        window.confirm("You want to UnFollow Harshil Patel");
-        document.getElementById("sidebar").style.display = "none";
-        document.getElementById("box").style.height = "300px";
-        document.getElementById("line").style.display = "none";
-        document.getElementById("follow").style.display = "none";
-    }
-})
+        $("#sidebar").css("display", "flex");
+        $("#box").css("height", "752px");
+        $("#line").css("display", "flex");
+        $("#follow").css("display", "flex");
 
+        let mypromise = new Promise((res,rej)=>{
+
+            if(true){
+                return res();
+            }
+            else{
+                return rej();
+            }
+        })
+
+            mypromise
+            .then (function(){
+                async function func(){
+                    let got = await fetch(`https://randomuser.me/api/`);
+                    let trance = await got.json();
+                    text = JSON.stringify(trance);
+                }
+        
+                let print = func();
+        
+                setTimeout(() => {
+                    $("#json").text(print);
+                  }, "3000");
+
+            })
+            .catch (function (){
+
+                setTimeout(() => {
+                    $("#json").text("fetching error!!");
+                  }, "2000");
+            })
+            tt =! tt;
+            if(tt){
+                     $("#message").on("keydown", function(){
+                        $("#json").append("1");
+                     })
+            }
+            else{
+                            $("#message").on("keyup", function(){
+                                setTimeout(()=>{
+                                    $("#json").append("0");
+                                }, "2000")
+                            })
+            }
+
+     
+
+    }else{
+        $("#btn").text("Follow");
+        window.confirm("You want to UnFollow Harshil Patel");
+        $("#sidebar").css("display", "none");
+        $("#box").css("height", "300px");
+        $("#line").css("display", "none");
+        $("#follow").css("display", "none");
+    }
+});
+});
 
 
