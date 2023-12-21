@@ -56,9 +56,6 @@ $("#btn").on("click", function(){
                                 }, "2000")
                             })
             }
-
-     
-
     }else{
         $("#btn").text("Follow");
         window.confirm("You want to UnFollow Harshil Patel");
