@@ -136,9 +136,9 @@ button{
 
 #sidebar{
     display: none;
-    flex-direction:row;
+    flex-direction: column;
     justify-content:center;
-   align-items: flex-end;
+   align-items: center;
     
     visibility: visible;
     margin-top: 50px;
@@ -161,5 +161,9 @@ button{
 
 }
 
+#json{
+    height: 80%;
+    width: 80%;
+}
 
 
